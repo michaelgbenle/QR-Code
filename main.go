@@ -29,6 +29,6 @@ func CodePage(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	png.Encode()
+	png.Encode(w,qrCode)
 
 }
