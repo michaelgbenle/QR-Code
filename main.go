@@ -7,5 +7,5 @@ type Page struct {
 }
 
 func HomePage(w http.ResponseWriter, r *http.Request) {
-
+		p:= Page{Title: "Generate QR Code"}
 }
