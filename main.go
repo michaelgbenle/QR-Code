@@ -2,6 +2,7 @@ package main
 
 import (
 	"html/template"
+	"log"
 	"net/http"
 
 	"github.com/boombuler/barcode"
@@ -19,7 +20,10 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
 }
 func CodePage(w http.ResponseWriter, r *http.Request) {
 	message := r.FormValue("message")
-	qrCode,_ := qr.Encode(message, qr.L, qr.Auto)
+	qrCode,err := qr.Encode(message, qr.L, qr.Auto)
+	if err != nil {
+		log.Fatal(err)
+	}
 	qrCode,_ = barcode.Scale(qrCode,600,600)
 
 }
