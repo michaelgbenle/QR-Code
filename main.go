@@ -1,6 +1,9 @@
 package main
 
-import "net/http"
+import (
+	"html/template"
+	"net/http"
+)
 
 type Page struct {
 	Title string
@@ -8,4 +11,5 @@ type Page struct {
 
 func HomePage(w http.ResponseWriter, r *http.Request) {
 		p:= Page{Title: "Generate QR Code"}
+		t,_:= template.ParseFiles()
 }
