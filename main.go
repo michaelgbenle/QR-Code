@@ -32,3 +32,6 @@ func CodePage(w http.ResponseWriter, r *http.Request) {
 	png.Encode(w,qrCode)
 
 }
+func main (){
+	http.HandleFunc("/", HomePage)
+}
