@@ -35,5 +35,5 @@ func CodePage(w http.ResponseWriter, r *http.Request) {
 func main (){
 	http.HandleFunc("/", HomePage)
 	http.HandleFunc("code", CodePage)
-	http.ListenAndServe(":5050")
+	http.ListenAndServe(":5050",nil)
 }
