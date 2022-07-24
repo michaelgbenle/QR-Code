@@ -24,6 +24,9 @@ func CodePage(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	qrCode,_ = barcode.Scale(qrCode,600,600)
+	qrCode,err = barcode.Scale(qrCode,600,600)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 }
