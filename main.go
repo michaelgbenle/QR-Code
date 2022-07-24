@@ -18,5 +18,6 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
 func CodePage(w http.ResponseWriter, r *http.Request) {
 	message := r.FormValue("message")
 	qrCode,_ := qr.Encode(message, qr.L, qr.Auto)
+	qrCode,_ = 
 
 }
