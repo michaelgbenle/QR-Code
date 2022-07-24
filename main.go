@@ -2,6 +2,7 @@ package main
 
 import (
 	"html/template"
+	"image/png"
 	"log"
 	"net/http"
 
@@ -28,5 +29,6 @@ func CodePage(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal(err)
 	}
+	png.Encode()
 
 }
