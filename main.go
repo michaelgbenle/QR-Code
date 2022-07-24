@@ -14,3 +14,6 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
 		t,_:= template.ParseFiles("generator.html")
 		t.Execute(w,p)
 }
+func CodePage(w http.ResponseWriter, r *http.Request) {
+
+}
