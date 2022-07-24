@@ -15,5 +15,7 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
 		t.Execute(w,p)
 }
 func CodePage(w http.ResponseWriter, r *http.Request) {
+	message := r.FormValue("message")
+	
 
 }
