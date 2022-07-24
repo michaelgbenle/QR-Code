@@ -34,4 +34,5 @@ func CodePage(w http.ResponseWriter, r *http.Request) {
 }
 func main (){
 	http.HandleFunc("/", HomePage)
+	http.HandleFunc("code", CodePage)
 }
