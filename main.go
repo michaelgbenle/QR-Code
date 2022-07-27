@@ -15,25 +15,31 @@ type Page struct {
 }
 
 func HomePage(w http.ResponseWriter, r *http.Request) {
-		p:= Page{Title: "Generate QR Code"}
-		t,_:= template.ParseFiles("generator.html")
-		t.Execute(w,p)
+	p := Page{Title: "Generate QR Code"}
+	t, _ := template.ParseFiles("generator.html")
+	t.Execute(w, p)
 }
 func CodePage(w http.ResponseWriter, r *http.Request) {
 	message := r.FormValue("message")
-	qrCode,err := qr.Encode(message, qr.L, qr.Auto)
+	qrCode, err := qr.Encode(message+, qr.L, qr.Auto)
 	if err != nil {
 		log.Fatal(err)
 	}
-	qrCode,err = barcode.Scale(qrCode,600,600)
+	qrCode, err = barcode.Scale(qrCode, 600, 600)
 	if err != nil {
 		log.Fatal(err)
 	}
-	png.Encode(w,qrCode)
+	err = png.Encode(w, qrCode)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 }
-func main (){
+func main() {
 	http.HandleFunc("/", HomePage)
 	http.HandleFunc("/code", CodePage)
-	http.ListenAndServe(":5050",nil)
+	err := http.ListenAndServe(":5050", nil)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
