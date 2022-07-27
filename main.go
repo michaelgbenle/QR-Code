@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"image/png"
 	"log"
@@ -41,6 +42,7 @@ func CodePage(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/", HomePage)
 	http.HandleFunc("/code", CodePage)
+	fmt.Println("connected to localhost on port 5050")
 	err := http.ListenAndServe(":5050", nil)
 	if err != nil {
 		log.Fatal(err)
